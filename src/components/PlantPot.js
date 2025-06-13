@@ -5,8 +5,8 @@ const PlantPot = ({ wish, onClick, imagePath, top, left }) => {
     <div
       onClick={() => onClick(wish)}
       style={{
-        width: "60px",
-        height: "60px",
+        width: "clamp(60px, 20vw, 120px)", // dari 40px sampai maksimal 60px
+        height: "clamp(60px, 20vw, 120px)",
         backgroundImage: `url(${encodeURI(imagePath)})`,
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",

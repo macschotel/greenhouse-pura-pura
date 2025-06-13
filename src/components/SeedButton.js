@@ -23,8 +23,8 @@ const SeedButton = ({ onClick }) => {
         src="/bijiku/Asset 6.svg"
         alt="Seed"
         style={{
-          width: "70vw", // kecilin biar gak kegedean di HP
-          maxWidth: "100px", // limit desktop
+          width: "70vw",
+          maxWidth: "100px",
           height: "auto",
         }}
       />
