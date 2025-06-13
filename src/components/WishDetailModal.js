@@ -36,9 +36,9 @@ const WishDetailModal = ({ wish, onClose }) => {
         <p
           style={{
             position: "absolute",
-            top: "23%", // geser sedikit biar gak numpuk title
+            top: "clamp(27%, 24%, 22%)",
             left: "24%",
-            fontSize: "clamp(1rem, 1.5vw, 1.5rem)",
+            fontSize: "clamp(1.5rem, 1.7rem, 2.5rem)",
             margin: 0,
             textAlign: "justify",
             color: "#633e30",
@@ -51,10 +51,10 @@ const WishDetailModal = ({ wish, onClose }) => {
         <div
           style={{
             position: "absolute",
-            top: "30%", // geser sedikit biar gak numpuk title
+            top: "clamp(32%, 33%, 35%)",
             left: "24%",
-            width: "55%",
-            height: "55%", // kasih napas buat tombol
+            width: "clamp(47%, 53%, 55%)",
+            height: "clamp(47%, 50%, 55%)",
             overflowY: "auto",
             boxSizing: "border-box",
             paddingRight: "0.5rem",
@@ -68,7 +68,7 @@ const WishDetailModal = ({ wish, onClose }) => {
                 style={{
                   fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
                   lineHeight: "1.2",
-                  marginBottom: "1rem",
+                  marginBottom: "0.5rem",
                   wordBreak: "break-word",
                   textAlign: "justify",
                 }}
@@ -85,7 +85,7 @@ const WishDetailModal = ({ wish, onClose }) => {
         <div
           style={{
             position: "absolute",
-            bottom: "6%",
+            bottom: "clamp(8%, 10%, 12%)",
             left: "50%",
             transform: "translateX(-50%)",
           }}
