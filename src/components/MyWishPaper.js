@@ -28,7 +28,7 @@ const MyWishPaper = ({ onClose, wishes }) => {
     >
       <div
         style={{
-          backgroundImage: `url("/buku terbuka/Asset 4.png")`,
+          backgroundImage: `url("/buku terbuka/Asset 4.svg")`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
