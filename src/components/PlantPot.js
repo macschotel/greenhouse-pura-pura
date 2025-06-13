@@ -12,6 +12,7 @@ const PlantPot = ({ wish, onClick, imagePath, top, left }) => {
         backgroundRepeat: "no-repeat",
         cursor: "pointer",
         position: "absolute",
+        pointerEvents: "auto",
         top: top,
         left: left,
         zIndex: 2,

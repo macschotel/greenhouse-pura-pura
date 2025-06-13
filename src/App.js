@@ -144,17 +144,15 @@ function App() {
           left: 0,
           width: "100%",
           height: "100%",
+          pointerEvents: "none", // biar nggak ganggu klik
         }}
       >
         {Object.entries(groupedWishes).map(([year, wishes], index) => {
           const potPath = wishes[0].potPath || getAvailablePot();
 
           let div = index < 3 ? index : index - 3;
-          let lft = 55 + 60 * div;
-          const { top, left } =
-            index < 3
-              ? { top: "115px", left: lft + "px" }
-              : { top: "218px", left: lft + "px" };
+          const potTop = index < 3 ? "18%" : "34%";
+          const potLeft = `${18 + 20 * div}%`;
 
           return (
             <PlantPot
@@ -162,8 +160,8 @@ function App() {
               wish={{ year, wishes }}
               onClick={() => setSelectedWish({ year, wishes })}
               imagePath={potPath}
-              top={top}
-              left={left}
+              top={potTop}
+              left={potLeft}
             />
           );
         })}
