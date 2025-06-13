@@ -4,6 +4,8 @@ import SeedButton from "./components/SeedButton";
 import WishModal from "./components/WishModal";
 import PlantPot from "./components/PlantPot";
 import WishDetailModal from "./components/WishDetailModal";
+import BookAndTable from "./components/BookAndTable";
+import MyWishPaper from "./components/MyWishPaper";
 
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
@@ -12,6 +14,9 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [groupedWishes, setGroupedWishes] = useState({});
   const [selectedWish, setSelectedWish] = useState(null);
+  const [bookModal, setBookModal] = useState(false);
+  const [wishesFromMe, setWishesFromMe] = useState({});
+
   const bgs = [
     "/background/malam duhai kekasih.svg",
     "/background/pagi manis.svg",
@@ -36,6 +41,10 @@ function App() {
     setShowModal(true);
   };
 
+  const handleBookClick = () => {
+    setBookModal(true);
+  };
+
   const fetchWishes = async () => {
     const querySnapshot = await getDocs(collection(db, "wishes"));
     const wishList = querySnapshot.docs.map((doc) => doc.data());
@@ -50,8 +59,16 @@ function App() {
     setGroupedWishes(grouped);
   };
 
+  const fetchWishesFromMe = async () => {
+    const querySnapshot = await getDocs(collection(db, "wishes-from-ito"));
+    const wishList = querySnapshot.docs.map((doc) => doc.data());
+
+    setWishesFromMe(wishList);
+  };
+
   useEffect(() => {
     fetchWishes();
+    fetchWishesFromMe();
   }, []);
 
   const getAvailablePot = () => {
@@ -110,6 +127,15 @@ function App() {
         <WishModal
           onClose={() => setShowModal(false)}
           onSave={handleSaveWish}
+        />
+      )}
+
+      <BookAndTable onClick={handleBookClick} />
+
+      {bookModal && (
+        <MyWishPaper
+          onClose={() => setBookModal(false)}
+          wishes={wishesFromMe}
         />
       )}
 
