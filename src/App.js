@@ -119,8 +119,9 @@ function App() {
   const now = new Date();
   const hour = now.getHours();
   let bg;
+  console.log(hour);
 
-  if (5 < hour < 18) bg = bgs[1];
+  if (hour > 5 && hour < 18) bg = bgs[1];
   else bg = bgs[0];
 
   return (
