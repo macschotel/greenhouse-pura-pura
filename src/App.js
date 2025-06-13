@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Greenhouse from "./components/Greenhouse";
 import SeedButton from "./components/SeedButton";
 import WishModal from "./components/WishModal";
@@ -30,6 +30,8 @@ function App() {
     "/tanaman/tulip/Asset 8.svg",
   ];
   const usedPotPaths = new Set();
+
+  const audioRef = useRef();
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -69,6 +71,9 @@ function App() {
   useEffect(() => {
     fetchWishes();
     fetchWishesFromMe();
+    if (audioRef.current) {
+      audioRef.current.volume = 0.3;
+    }
   }, []);
 
   const getAvailablePot = () => {
@@ -113,7 +118,6 @@ function App() {
 
   const now = new Date();
   const hour = now.getHours();
-  console.log(hour);
   let bg;
 
   if (hour < 18) bg = bgs[1];
@@ -175,6 +179,9 @@ function App() {
           onClose={() => setSelectedWish(null)}
         />
       )}
+      <audio ref={audioRef} autoPlay loop>
+        <source src="/audio/sound.mp3" type="audio/mp3" />
+      </audio>
     </Greenhouse>
   );
 }
