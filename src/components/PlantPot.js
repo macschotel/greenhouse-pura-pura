@@ -1,14 +1,13 @@
 import React from "react";
 
-// to-do: tambahin parameter untuk image potnya, random dari list
-const PlantPot = ({ wish, onClick/*, imagePath*/ }) => {
+const PlantPot = ({ wish, onClick, imagePath}) => {
     return (
         <div
         onClick={() => onClick(wish)}
         style={{
             width: '60px',
             height: '60px',
-            // backgroundImage: 'url(/pot.png)', // ganti dengan aset pot kamu nanti
+            backgroundImage: `url(${encodeURI(imagePath)})`,
             backgroundColor: 'blue',
             backgroundSize: 'cover',
             margin: '10px',

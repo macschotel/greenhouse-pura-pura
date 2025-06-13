@@ -1,21 +1,17 @@
 import React from "react";
 
-const Greenhouse = ({ children }) => {
+const Greenhouse = ({ children, imagePath }) => {
     return (
-        <div style = {{
-            width: '100%',
-            maxWidth: '480px',
-            margin: '0 auto',
-            minHeight: '100vh',
-            backgroundColor: '#e6ffe6',
-            // backgroundImage: 'url(/greenhouse-bg.png)', 
-            backgroundSize: 'cover',
-            backgroundReapt: 'no-repeat',
-            backgroundPosition: 'top center',
-            position: 'relative',
-            padding: '1rem',
-            boxSizing: 'border-box'
-        }}>
+        <div style={{
+        width: '100vw',
+        height: '100vh',
+        backgroundImage: `url(${encodeURI(imagePath)})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
             {children}
         </div>
     );
