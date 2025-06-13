@@ -6,8 +6,7 @@ const Greenhouse = ({ children, imagePath }) => {
       style={{
         width: "100%",
         maxWidth: "600px",
-        aspectRatio: "3 / 5", // atau paddingTop kalau belum support
-        backgroundColor: "blue", // biar kelihatan dulu
+        aspectRatio: "4 / 9",
         backgroundImage: imagePath ? `url(${encodeURI(imagePath)})` : "none",
         backgroundSize: "cover",
         backgroundPosition: "top center",

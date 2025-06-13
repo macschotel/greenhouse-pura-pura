@@ -102,7 +102,55 @@ function App() {
   if (hour < 18) bg = bgs[1];
   else bg = bgs[0];
 
-  return <Greenhouse imagePath={bg}></Greenhouse>;
+  return (
+    <Greenhouse imagePath={bg}>
+      <SeedButton onClick={handleSeedClick} />
+
+      {showModal && (
+        <WishModal
+          onClose={() => setShowModal(false)}
+          onSave={handleSaveWish}
+        />
+      )}
+
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none", // biar nggak ganggu klik
+        }}
+      >
+        {Object.entries(groupedWishes).map(([year, wishes], index) => {
+          const potPath = wishes[0].potPath || getAvailablePot();
+
+          let div = index < 3 ? index : index - 3;
+          const potTop = index < 3 ? "19%" : "35%";
+          const potLeft = `${18 + 20 * div}%`;
+
+          return (
+            <PlantPot
+              key={year}
+              wish={{ year, wishes }}
+              onClick={() => setSelectedWish({ year, wishes })}
+              imagePath={potPath}
+              top={potTop}
+              left={potLeft}
+            />
+          );
+        })}
+      </div>
+
+      {selectedWish && (
+        <WishDetailModal
+          wish={selectedWish}
+          onClose={() => setSelectedWish(null)}
+        />
+      )}
+    </Greenhouse>
+  );
 }
 
 export default App;

@@ -10,13 +10,11 @@ const SeedButton = ({ onClick }) => {
         cursor: "pointer",
         position: "absolute",
         bottom: "2rem",
-        left: "80%",
-        transform: "translateX(-50%)",
+        left: "50%", // centerin
+        transform: "translateX(40%)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        fontSize: "0.8rem",
-        color: "#4a4a4a",
         pointerEvents: "auto",
         zIndex: 3,
       }}
@@ -25,11 +23,18 @@ const SeedButton = ({ onClick }) => {
         src="/bijiku/Asset 6.svg"
         alt="Seed"
         style={{
-          width: "120px",
-          height: "120px",
-          marginBottom: "0.3rem",
+          width: "70vw", // kecilin biar gak kegedean di HP
+          maxWidth: "100px", // limit desktop
+          height: "auto",
         }}
       />
+      <span
+        style={{
+          marginTop: "0.3rem",
+          fontSize: "0.8rem",
+          color: "#4a4a4a",
+        }}
+      ></span>
     </button>
   );
 };
