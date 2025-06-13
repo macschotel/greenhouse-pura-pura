@@ -9,7 +9,7 @@ const WishDetailModal = ({ wish, onClose }) => {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(228, 178, 178, 0.5)",
+        backgroundColor: "rgba(241, 225, 152, 0.5)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -33,57 +33,78 @@ const WishDetailModal = ({ wish, onClose }) => {
           justifyContent: "space-between",
         }}
       >
-        <h2
+        <p
           style={{
-            textAlign: "center",
-            fontSize: "2rem",
-            marginTop: "1.5rem",
+            position: "absolute",
+            top: "23%", // geser sedikit biar gak numpuk title
+            left: "24%",
+            fontSize: "clamp(1rem, 1.5vw, 1.5rem)",
+            margin: 0,
+            textAlign: "justify",
+            color: "#633e30",
           }}
           className="chelsea-market-regular"
         >
           {wish.year}
-        </h2>
+        </p>
 
         <div
           style={{
-            flex: "1",
+            position: "absolute",
+            top: "30%", // geser sedikit biar gak numpuk title
+            left: "24%",
+            width: "55%",
+            height: "55%", // kasih napas buat tombol
             overflowY: "auto",
-            paddingLeft: "2.5rem",
-            paddingRight: "2.5rem",
-            paddingBottom: "1rem", // biar gak nabrak tombol
             boxSizing: "border-box",
-            textAlign: "justify",
+            paddingRight: "0.5rem",
           }}
         >
           {wish.wishes.map((w, i) => (
-            <p
-              key={i}
-              className="patrick-hand-regular"
-              style={{
-                fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)",
-                lineHeight: "1.2",
-                wordBreak: "break-word",
-              }}
-            >
-              {w.text}
-            </p>
+            <React.Fragment key={i}>
+              <p
+                key={i}
+                className="patrick-hand-regular"
+                style={{
+                  fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
+                  lineHeight: "1.2",
+                  marginBottom: "1rem",
+                  wordBreak: "break-word",
+                  textAlign: "justify",
+                }}
+              >
+                {w.text}
+              </p>
+              {wish.wishes.length > 1 && (
+                <hr style={{ border: "1px solid #633e30" }} />
+              )}
+            </React.Fragment>
           ))}
         </div>
 
         <div
           style={{
-            textAlign: "center",
-            marginTop: "1.5rem",
+            position: "absolute",
+            bottom: "6%",
+            left: "50%",
+            transform: "translateX(-50%)",
           }}
         >
-          <button onClick={onClose}>
+          <button
+            onClick={onClose}
+            style={{
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+            }}
+          >
             <img
               src="/button jadi/button tutup/Asset 19.svg"
-              alt="Seed"
+              alt="Tutup"
               style={{
-                maxWidth: "100%",
+                width: "50px",
                 height: "auto",
-                marginBottom: "0.3rem",
               }}
             />
           </button>

@@ -10,8 +10,7 @@ const SeedButton = ({ onClick }) => {
         cursor: "pointer",
         position: "absolute",
         bottom: "2rem",
-        left: "50%", // centerin
-        transform: "translateX(40%)",
+        right: "5%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -23,9 +22,8 @@ const SeedButton = ({ onClick }) => {
         src="/bijiku/Asset 6.svg"
         alt="Seed"
         style={{
-          width: "70vw",
-          maxWidth: "100px",
-          height: "auto",
+          width: "clamp(60px, 40vw, 200px)",
+          height: "clamp(60px, 40vw, 200px)",
         }}
       />
       <span
