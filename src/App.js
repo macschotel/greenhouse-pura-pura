@@ -120,7 +120,7 @@ function App() {
   const hour = now.getHours();
   let bg;
 
-  if (hour < 18) bg = bgs[1];
+  if (5 < hour < 18) bg = bgs[1];
   else bg = bgs[0];
 
   return (
