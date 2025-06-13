@@ -103,7 +103,7 @@ const WishDetailModal = ({ wish, onClose }) => {
               src="/button jadi/button tutup/Asset 19.svg"
               alt="Tutup"
               style={{
-                width: "50px",
+                width: "clamp(60px, 66px, 75px)",
                 height: "auto",
               }}
             />
