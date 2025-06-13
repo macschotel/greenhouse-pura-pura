@@ -95,10 +95,22 @@ function App() {
     return unusedPot[randomIndex];
   };
 
+  const getPot = () => {
+    for (const wishGroup of Object.values(groupedWishes)) {
+      for (const w of wishGroup) {
+        if (w.potPath && w.year === new Date().getFullYear()) {
+          return w.potPath;
+        }
+      }
+    }
+
+    return pots[getRandomInt(0, pots.length)];
+  };
+
   const handleSaveWish = async (wishText) => {
     console.log("wishText:", wishText);
 
-    const pot = getAvailablePot();
+    const pot = getPot();
 
     const newWish = {
       text: wishText,
@@ -155,7 +167,7 @@ function App() {
         }}
       >
         {Object.entries(groupedWishes).map(([year, wishes], index) => {
-          const potPath = wishes[0].potPath || getAvailablePot();
+          const potPath = wishes[0].potPath || getPot();
 
           let div = index < 3 ? index : index - 3;
           const potTop = index < 3 ? "19%" : "35%";
