@@ -54,7 +54,7 @@ const WishDetailModal = ({ wish, onClose }) => {
             top: "clamp(32%, 33%, 35%)",
             left: "24%",
             width: "clamp(47%, 53%, 55%)",
-            height: "clamp(47%, 50%, 55%)",
+            height: "clamp(43%, 45%, 55%)",
             overflowY: "auto",
             boxSizing: "border-box",
             paddingRight: "0.5rem",
