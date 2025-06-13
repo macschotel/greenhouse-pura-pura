@@ -27,7 +27,7 @@ const WishModal = ({ onClose, onSave }) => {
     >
       <div
         style={{
-          backgroundImage: `url("/modul landscape/Asset 3.png")`,
+          backgroundImage: `url("/modul landscape/Asset 3@2x.png")`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
